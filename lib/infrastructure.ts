@@ -22,7 +22,7 @@ export class InfrastructureStack extends Stack {
     constructor(scope: Construct, id: string, props?: StackProps) {
         super(scope, id, props);
         const vpc = new ec2.Vpc(this, 'VPC', {
-            cidr: '10.0.0.0/16',
+            ipAddresses: ec2.IpAddresses.cidr('10.0.0.0/16'),
             enableDnsHostnames: true,
             enableDnsSupport: true,
         });
