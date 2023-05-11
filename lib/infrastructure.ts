@@ -164,5 +164,17 @@ export class InfrastructureStack extends Stack {
         new CfnOutput(this, 'DockerRunCommand', {
             value: `docker run --init -p 3000:3000 --rm ${this.imageRepository.repositoryUri}:v1`
         });
+
+        new CfnOutput(this, 'AccessALBX86', {
+            value: `http://${alb.loadBalancerDnsName}/x86`
+        });
+
+        new CfnOutput(this, 'AccessALBArm64', {
+            value: `http://${alb.loadBalancerDnsName}/arm64`
+        });
+
+        new CfnOutput(this, 'DeleteECRImage', {
+            value: `aws ecr batch-delete-image --repository-name ${this.imageRepository.repositoryName} --image-ids imageTag=v1`
+        });
     }
 }
