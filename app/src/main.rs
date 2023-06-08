@@ -6,7 +6,6 @@ use std::{
     io::{prelude::*, BufReader},
     net::{TcpListener, TcpStream},
     thread,
-    time::Duration,
 };
 mod threadpool;
 use threadpool::ThreadPool;

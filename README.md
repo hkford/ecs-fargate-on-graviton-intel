@@ -83,13 +83,6 @@ curl ${AccessALBX86}
 
 ![x86](./img/x86.png)
 
-### Cleanup ECR manifest list
-Currently auto deleting images on ECR with multi architecture image is not working (See [this GitHub issue](https://github.com/aws/aws-cdk/issues/24822)). At this step you delete container manifest list which is tagged `v1`. Run the command printed on the terminal `ECSInfrastructureStack.DeleteECRImage`.
-
-```shell
-aws ecr batch-delete-image --repository-name ${ECR repository name} --image-ids imageTag=v1
-```
-
 ### Delete entire stack
 Run the following command to delete two stacks. Press `y` to the question `Are you sure you want to delete: ECSServiceStack, ECSInfrastructureStack (y/n)?`.
 

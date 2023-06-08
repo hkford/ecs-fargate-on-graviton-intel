@@ -172,9 +172,5 @@ export class InfrastructureStack extends Stack {
         new CfnOutput(this, 'AccessALBArm64', {
             value: `http://${alb.loadBalancerDnsName}/arm64`
         });
-
-        new CfnOutput(this, 'DeleteECRImage', {
-            value: `aws ecr batch-delete-image --repository-name ${this.imageRepository.repositoryName} --image-ids imageTag=v1`
-        });
     }
 }
